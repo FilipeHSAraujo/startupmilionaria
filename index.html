@@ -3,19 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hub Jr.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
 
+<header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="#">Hub Jr.</a>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <form class="nav-search" role="search">
+        <input type="search" placeholder="Buscar..." aria-label="Buscar no site" />
+        <button type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Botão mobile -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+
+<aside class="menu_lateral">
+    <h3><i class="fas fa-link"></i> <span>Links Úteis</span></h3>
+    <nav>
+      <a href="https://www.example.com">
+        <i class="fas fa-globe"></i> <span>Exemplo 1</span>
+      </a>
+      <a href="https://www.example.org">
+        <i class="fas fa-cog"></i> <span>Exemplo 2</span>
+      </a>
+      <a href="https://www.example.net">
+        <i class="fas fa-star"></i> <span>Exemplo 3</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main>
+    
     <section id="home">
-        <h1>Bem-vindo ao nosso site!</h1>
+        <h1>Bem-vindo ao Hub Jr.!</h1>
         <p>Esta é a seção de início.</p>
     </section>
     <section id="sobre">
@@ -35,16 +76,13 @@
         </article>
     </section>
 
-    <aside>
-        <h3>Links Úteis</h3>
-        <ul>
-            <li><a href="https://www.example.com">Exemplo 1</a></li>
-            <li><a href="https://www.example.org">Exemplo 2</a></li>
-        </ul>
-    </aside>
+</main>
+
+
+
 
     <footer>
-        <p>&copy; 2024 Minha Empresa. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Hub Jr. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
