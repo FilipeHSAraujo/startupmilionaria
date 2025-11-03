@@ -1,88 +1,165 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub Jr.</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" />
+  <!-- Metadados -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hub Jr. - Plataforma de inovação e tecnologia" />
+  <meta name="author" content="Hub Jr." />
+  <meta name="theme-color" content="#1E1E1F" />
+
+  <!-- Título e Favicon -->
+  <title>Hub Jr. - Inovação e Tecnologia</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Font Awesome (ícones) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-
-<header>
-    <nav class="navbar">
-      <div class="nav-brand">
-        <a href="#">Hub Jr.</a>
-      </div>
-
-      <ul class="nav-menu">
-        <li><a href="#home">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-
-      <form class="nav-search" role="search">
-        <input type="search" placeholder="Buscar..." aria-label="Buscar no site" />
-        <button type="submit">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
-
-      <!-- Botão mobile -->
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-  </header>
-
-
-<aside class="menu_lateral">
-    <h3><i class="fas fa-link"></i> <span>Links Úteis</span></h3>
+  <!-- ===================================
+       MENU LATERAL (fixo à esquerda)
+       =================================== -->
+  <aside class="menu_lateral" aria-label="Menu lateral com links úteis">
+    <h3>
+      <i class="fas fa-link" aria-hidden="true"></i>
+      <span>Links Úteis</span>
+    </h3>
     <nav>
-      <a href="https://www.example.com">
-        <i class="fas fa-globe"></i> <span>Exemplo 1</span>
+      <a href="https://www.example.com" aria-label="Acessar Exemplo 1">
+        <i class="fas fa-globe" aria-hidden="true"></i>
+        <span>Exemplo 1</span>
       </a>
-      <a href="https://www.example.org">
-        <i class="fas fa-cog"></i> <span>Exemplo 2</span>
+      <a href="https://www.example.org" aria-label="Acessar Exemplo 2">
+        <i class="fas fa-cog" aria-hidden="true"></i>
+        <span>Exemplo 2</span>
       </a>
-      <a href="https://www.example.net">
-        <i class="fas fa-star"></i> <span>Exemplo 3</span>
+      <a href="https://www.example.net" aria-label="Acessar Exemplo 3">
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <span>Exemplo 3</span>
       </a>
     </nav>
   </aside>
 
+  <!-- ===================================
+       CABEÇALHO COM NAVEGAÇÃO
+       =================================== -->
+  <header>
+    <nav class="navbar" aria-label="Navegação principal">
+      <!-- Logo / Marca -->
+      <div class="nav-brand">
+        <a href="#" aria-label="Voltar à página inicial">Hub Jr.</a>
+      </div>
+
+      <!-- Menu de navegação -->
+      <ul class="nav-menu" role="menubar">
+        <li role="none"><a href="#home" role="menuitem">Início</a></li>
+        <li role="none"><a href="#sobre" role="menuitem">Sobre</a></li>
+        <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
+      </ul>
+
+      <!-- Barra de pesquisa -->
+      <form class="nav-search" role="search" aria-label="Buscar no site">
+        <label class="visually-hidden" for="site-search">Pesquisar no site</label>
+        <input
+          type="search"
+          id="site-search"
+          name="q"
+          placeholder="Buscar..."
+          aria-label="Campo de busca"
+          autocomplete="off"
+        />
+        <button type="submit" aria-label="Iniciar busca">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu nav-search">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===================================
+       CONTEÚDO PRINCIPAL (centralizado)
+       =================================== -->
   <main>
-    
     <section id="home">
-        <h1>Bem-vindo ao Hub Jr.!</h1>
-        <p>Esta é a seção de início.</p>
+      <h1>Bem-vindo ao Hub Jr.!</h1>
+      <p>Esta é a seção de início.</p>
     </section>
+
     <section id="sobre">
-        <h2>Sobre Nós</h2>
-        <p>Informações sobre nossa empresa.</p>
+      <h2>Sobre Nós</h2>
+      <p>Informações sobre nossa empresa.</p>
     </section>
 
     <section id="contato">
-        <h2>Contato</h2>
-        <p>Informações de contato.</p>
+      <h2>Contato</h2>
+      <p>Informações de contato.</p>
     </section>
 
     <section>
-        <article>
-            <h2>Notícia 1</h2>
-            <p>Detalhes da notícia 1.</p>
-        </article>
+      <article>
+        <h2>Notícia 1</h2>
+        <p>Detalhes da notícia 1.</p>
+      </article>
     </section>
+  </main>
 
-</main>
+  <!-- ===================================
+       RODAPÉ
+       =================================== -->
+  <footer>
+    <p>&copy; <span id="current-year"></span> Hub Jr. Todos os direitos reservados.</p>
+  </footer>
 
+  <!-- ===================================
+       SCRIPTS
+       =================================== -->
+  <script>
+    // Atualiza o ano automaticamente
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 
+    // Controle do menu mobile
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navSearch = document.querySelector('.nav-search');
 
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isExpanded);
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      navSearch.classList.toggle('active');
+    });
 
-    <footer>
-        <p>&copy; 2024 Hub Jr. Todos os direitos reservados.</p>
-    </footer>
+    // Fecha o menu ao clicar fora (mobile)
+    document.addEventListener('click', (e) => {
+      if (
+        !hamburger.contains(e.target) &&
+        !navMenu.contains(e.target) &&
+        !navSearch.contains(e.target) &&
+        navMenu.classList.contains('active')
+      ) {
+        hamburger.click();
+      }
+    });
+  </script>
 </body>
+
 </html>

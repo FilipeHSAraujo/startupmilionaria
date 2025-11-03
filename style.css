@@ -1,24 +1,35 @@
+/* ===================================
+   RESET & BASE
+   =================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
   color: #333;
+  line-height: 1.6;
   min-height: 100vh;
-  padding-left: 70px; /* Espaço para o menu colapsado */
+  padding-left: 70px; /* Espaço para menu lateral colapsado */
   transition: padding-left 0.3s ease;
 }
 
+/* ===================================
+   MENU LATERAL (fixo à esquerda)
+   =================================== */
 .menu_lateral {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 70px; /* Largura colapsada */
+  width: 70px;
   background-color: #1E1E1F;
   padding: 20px 0;
   transition: width 0.3s ease;
@@ -28,7 +39,7 @@ body {
 }
 
 .menu_lateral:hover {
-  width: 250px; /* Largura expandida */
+  width: 250px;
 }
 
 .menu_lateral h3,
@@ -62,51 +73,22 @@ body {
 .menu_lateral span {
   margin-left: 15px;
   opacity: 0;
-  transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease 0.1s;
 }
 
 .menu_lateral:hover span {
   opacity: 1;
 }
 
-/* Responsividade para mobile */
-@media (max-width: 768px) {
-  .menu_lateral {
-    width: 60px;
-  }
-  .menu_lateral:hover {
-    width: 200px;
-  }
-  body {
-    padding-left: 60px;
-  }
-}
-
-/* Main ajusta com o menu */
-main {
-  padding: 30px;
-  max-width: 1000px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-}
-
+/* ===================================
+   NAVBAR (topo)
+   =================================== */
 header {
   background-color: #ffffff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
 }
 
 .navbar {
@@ -136,12 +118,8 @@ header {
   text-decoration: none;
   color: #444;
   font-weight: 500;
-  transition: color 0.3s ease;
   position: relative;
-}
-
-.nav-menu a:hover {
-  color: #007bff;
+  transition: color 0.3s ease;
 }
 
 .nav-menu a::after {
@@ -153,6 +131,10 @@ header {
   left: 0;
   background-color: #007bff;
   transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #007bff;
 }
 
 .nav-menu a:hover::after {
@@ -188,7 +170,8 @@ header {
   transition: color 0.3s;
 }
 
-.nav-search button:hover {
+.nav-search button:hover,
+.nav-search:hover {
   color: #007bff;
 }
 
@@ -197,7 +180,7 @@ header {
   box-shadow: 0 0 0 1px #007bff;
 }
 
-/* Hamburger (mobile) */
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -212,29 +195,71 @@ header {
   transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+/* ===================================
+   MAIN (centralizado)
+   =================================== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  min-height: calc(100vh - 140px); /* Evita rodapé colado */
 }
 
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
+main section,
+main article {
+  margin-bottom: 40px;
 }
 
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+main h1 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: #1E1E1F;
 }
 
-/* Responsividade */
+main h2 {
+  font-size: 1.8rem;
+  margin: 24px 0 12px;
+  color: #222;
+}
+
+main p {
+  margin-bottom: 16px;
+  color: #555;
+}
+
+/* ===================================
+   RODAPÉ
+   =================================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1E1E1F;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+   =================================== */
 @media (max-width: 992px) {
-  .nav-search input {
-    width: 140px;
-  }
+  .nav-search input { width: 140px; }
 }
 
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+  body { padding-left: 60px; }
+
+  .menu_lateral { width: 60px; }
+  .menu_lateral:hover { width: 200px; }
+
+  .hamburger { display: flex; }
 
   .nav-menu,
   .nav-search {
@@ -259,64 +284,15 @@ header {
     visibility: visible;
   }
 
-  .nav-menu {
-    order: 1;
-    gap: 15px;
-    padding-bottom: 10px;
-  }
+  .nav-menu { order: 1; gap: 15px; }
+  .nav-menu li { width: 100%; text-align: center; }
+  .nav-menu a { display: block; padding: 12px 0; font-size: 1.1rem; }
 
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-menu a {
-    display: block;
-    padding: 12px 0;
-    font-size: 1.1rem;
-  }
-
-  .nav-search {
-    order: 2;
-    width: 90%;
-    margin: 10px auto 0;
-  }
-
-  .nav-search input {
-    width: 100%;
-  }
+  .nav-search { order: 2; width: 90%; margin: 15px auto 0; }
+  .nav-search input { width: 100%; }
 }
 
-main {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+@media (max-width: 480px) {
+  main { padding: 20px 15px; }
+  .nav-brand a { font-size: 1.3rem; }
 }
-
-
-
-
-/*
-body {
- background-color: #121213;
- color: white;
-}
-
-nav a {
- text-decoration: none; 
- color: white;
- justify-content: space-between;
- display: flex;
- cursor: pointer;
- padding: 10px;
- list-style-type: none;
-}
-
-aside.menu_lateral {
- background-color: #1E1E1F;
- padding: 15px;
- margin-top: 20px;
- border-radius: 8px;
-
-}
- */
