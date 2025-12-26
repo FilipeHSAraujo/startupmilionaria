@@ -8,16 +8,13 @@
 
 ## 📑 Conteúdo
 
-- Visão geral do projeto
-- Funcionalidades
-- Arquitetura do projeto
-- Banco de dados
-- Tecnologias utilizadas
-- Endpoints principais
-- Como executar o projeto
-- Documentação da API
-- Próximos passos
-- Comunidade e suporte
+* [Visão geral do projeto](#visão-geral-do-projeto)
+* [Tecnologias utilizadas](#tecnologias-utilizadas)
+* [Estrutura do projeto](#estrutura-do-projeto)
+* [Funcionalidades](#funcionalidades)
+* [Endpoints principais](#endpoints-principais)
+* [Como executar o projeto](#como-executar-o-projeto)
+* [Contribuidores](#Contribuidores)
 
 ---
 
@@ -174,4 +171,5 @@ Agradecimento especial a todas as pessoas incríveis que contribuíram para este
 ## 📄 Licença
 
 Este projeto é open-source e está disponível sob a Licença MIT. Sinta-se livre para usar, modificar e distribuir para projetos pessoais ou comerciais.
+
 
