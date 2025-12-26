@@ -1,176 +1,175 @@
-# 🔗 ConnectPro – Plataforma Profissional (Estilo LinkedIn)
+# 🔗 ConnectPro – Plataforma Profissional
 
-## 📌 Descrição do Projeto
+> Plataforma backend desenvolvida em **Spring Boot**, inspirada no LinkedIn, focada em **networking profissional**, **perfis**, **postagens**, **interações sociais** e **segurança**.
 
-O **ConnectPro** é uma aplicação backend desenvolvida com **Spring Boot**, inspirada em plataformas profissionais como o LinkedIn. O objetivo do projeto é permitir a conexão entre usuários, criação de perfis profissionais, publicação de conteúdos, networking e interações como curtidas e comentários.
+> Projeto **para fins educacionais e de portfólio**, demonstrando boas práticas de **arquitetura REST**, **Spring Security + JWT**, **organização em camadas** e **documentação com Swagger**.
 
-Este projeto foi desenvolvido com foco em **boas práticas de arquitetura**, **API RESTful**, **segurança**, **escalabilidade** e **organização em camadas**.
+---
+
+## 📑 Conteúdo
+
+* [Visão geral do projeto](#visão-geral-do-projeto)
+* [Tecnologias utilizadas](#tecnologias-utilizadas)
+* [Estrutura do projeto](#estrutura-do-projeto)
+* [Funcionalidades](#funcionalidades)
+* [Endpoints principais](#endpoints-principais)
+* [Como executar o projeto](#como-executar-o-projeto)
+* [Contribuidores](#Contribuidores)
+
+---
+
+## 📌 Visão geral do projeto
+
+O **ConnectPro** é uma **API RESTful** desenvolvida em **Java com Spring Boot**, inspirada em plataformas profissionais como o LinkedIn.
+
+O sistema permite:
+- Criação de **perfis profissionais**
+- **Conexões** entre usuários
+- **Publicações**, curtidas e comentários
+- **Autenticação segura** com JWT
+
+O projeto segue boas práticas como **separação de camadas**, **DTOs**, **tratamento global de exceções** e **segurança robusta**.
 
 ---
 
 ## 🚀 Funcionalidades
 
-### 👤 Usuários
-
-* Cadastro de usuário
-* Login com autenticação JWT
-* Atualização de perfil profissional
-* Upload de foto de perfil
-* Definição de cargo, empresa, bio e habilidades
+### 👤 Usuários & Perfis
+- Cadastro de usuário
+- Login com autenticação JWT
+- Atualização de perfil profissional
+- Cargo, empresa, bio e habilidades
+- Upload de foto de perfil
 
 ### 🤝 Conexões
-
-* Enviar solicitação de conexão
-* Aceitar ou recusar conexões
-* Listar conexões
+- Enviar solicitação de conexão
+- Aceitar ou recusar conexões
+- Listar conexões do usuário
 
 ### 📝 Publicações
-
-* Criar postagens (texto)
-* Listar postagens do feed
-* Curtir e descurtir publicações
-* Comentar em postagens
+- Criar postagens
+- Feed de postagens
+- Curtir e descurtir postagens
+- Comentar em postagens
 
 ### 🔔 Interações
-
-* Curtidas
-* Comentários
-* Feed personalizado com base nas conexões
+- Curtidas
+- Comentários
+- Feed personalizado baseado nas conexões
 
 ### 🔐 Segurança
-
-* Autenticação com **Spring Security + JWT**
-* Controle de acesso por usuário
-* Senhas criptografadas com **BCrypt**
-
----
-
-## 🧱 Arquitetura do Projeto
-
-O projeto segue o padrão **MVC + API REST**, organizado em camadas:
-
-```
-src/main/java/com/connectpro
-│
-├── controller   # Camada de controle (endpoints REST)
-├── service      # Regras de negócio
-├── repository   # Acesso ao banco de dados (JPA)
-├── model        # Entidades do sistema
-├── dto          # Objetos de transferência de dados
-├── security     # Configurações de segurança (JWT)
-└── exception    # Tratamento de exceções
-```
+- Spring Security + JWT
+- Controle de acesso por usuário
+- Senhas criptografadas com BCrypt
 
 ---
 
-## 🗄️ Banco de Dados
+## 🧱 Arquitetura do projeto
 
-Banco de dados relacional (ex: **PostgreSQL** ou **MySQL**) com JPA/Hibernate.
+Estrutura baseada em **MVC + API REST**:
 
-### Principais Tabelas:
-
-* `users`
-* `profiles`
-* `posts`
-* `comments`
-* `likes`
-* `connections`
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🗄️ Banco de dados
 
-* Java 17+
-* Spring Boot
-* Spring Web
-* Spring Data JPA
-* Spring Security
-* JWT (JSON Web Token)
-* Hibernate
-* PostgreSQL / MySQL
-* Maven
-* Lombok
-* Swagger (OpenAPI)
+Banco de dados relacional com **JPA/Hibernate**.
 
----
+### Principais tabelas:
+- users
+- profiles
+- posts
+- comments
+- likes
+- connections
 
-## 📡 Endpoints Principais (Exemplos)
-
-### Autenticação
-
-* `POST /auth/register`
-* `POST /auth/login`
-
-### Usuários
-
-* `GET /users/{id}`
-* `PUT /users/{id}`
-
-### Conexões
-
-* `POST /connections/{id}`
-* `GET /connections`
-
-### Publicações
-
-* `POST /posts`
-* `GET /posts/feed`
-* `POST /posts/{id}/like`
-* `POST /posts/{id}/comment`
+Compatível com:
+- PostgreSQL
+- MySQL
 
 ---
 
-## 📄 Documentação da API
+## 🛠️ Tecnologias utilizadas
 
-A documentação da API é gerada automaticamente com **Swagger**:
-
-```
-http://localhost:8080/swagger-ui.html
-```
+- Java 17+
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- Spring Security
+- JWT (JSON Web Token)
+- Hibernate
+- PostgreSQL / MySQL
+- Maven
+- Lombok
+- Swagger / OpenAPI 3
 
 ---
 
-## ▶️ Como Executar o Projeto
+## 📡 Endpoints principais (exemplos)
+
+### 🔐 Autenticação
+| Método | Endpoint |
+|------|---------|
+| POST | /auth/register |
+| POST | /auth/login |
+
+### 👤 Usuários
+| Método | Endpoint |
+|------|---------|
+| GET | /users/{id} |
+| PUT | /users/{id} |
+
+### 🤝 Conexões
+| Método | Endpoint |
+|------|---------|
+| POST | /connections/{id} |
+| GET | /connections |
+
+### 📝 Publicações
+| Método | Endpoint |
+|------|---------|
+| POST | /posts |
+| GET | /posts/feed |
+| POST | /posts/{id}/like |
+| POST | /posts/{id}/comment |
+
+---
+
+## ▶️ Como executar o projeto
 
 ### Pré-requisitos
+- Java 17+
+- Maven
+- PostgreSQL ou MySQL configurado
 
-* Java 17+
-* Maven
-* Banco de dados configurado
+### Executando localmente
 
-### Passos
-
-```bash
+bash
 git clone https://github.com/seu-usuario/connectpro.git
 cd connectpro
 mvn spring-boot:run
-```
+
+## 💬 Comunidade e Suporte
+
+Junte-se às nossas discussões da comunidade no GitHub para compartilhar ideias, fazer perguntas ou sugerir melhorias. Vamos construir algo incrível juntos!
+
+[![Abrir Issues](https://img.shields.io/badge/Abrir%20Issues-blue?style=for-the-badge&logo=github)](https://github.com/FilipeHSAraujo/ConnectPro/issues)
+
+Use o espaço de *issues* para relatar bugs, sugerir melhorias ou tirar dúvidas sobre o projeto 💬
 
 ---
 
-## 🧪 Testes
+## 👥 Contribuidores
 
-* Testes unitários com JUnit
-* Testes de integração para endpoints REST
+Agradecimento especial a todas as pessoas incríveis que contribuíram para este projeto 💙
 
----
+<a href="https://github.com/FilipeHSAraujo/ConnectPro/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=FilipeHSAraujo/ConnectPro" />
+</a>
 
-## 📈 Melhorias Futuras
 
-* Chat em tempo real (WebSocket)
-* Sistema de notificações
-* Upload de currículo (PDF)
-* Recomendação de conexões
-* Integração com frontend (React / Angular)
+## 📄 Licença
 
----
+Este projeto é open-source e está disponível sob a Licença MIT. Sinta-se livre para usar, modificar e distribuir para projetos pessoais ou comerciais.
 
-## 👨‍💻 Autor
 
-Projeto desenvolvido para fins de **estudo e portfólio**, demonstrando conhecimentos em **Spring Boot**, **APIs REST**, **segurança** e **arquitetura de software**.
-
----
-
-## 📜 Licença
-
-Este projeto é livre para uso educacional.
