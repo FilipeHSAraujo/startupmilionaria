@@ -1,6 +1,6 @@
 # 🔗 ConnectPro – Plataforma Profissional
 
-> Plataforma backend desenvolvida em **Spring Boot**, inspirada no LinkedIn, focada em **networking profissional**, **perfis**, **postagens**, **interações sociais** e **segurança**.
+> Plataforma backend desenvolvida em **Spring Boot**, focada em **networking profissional**, **perfis**, **postagens**, **interações sociais** e **segurança**.
 
 > Projeto **para fins educacionais e de portfólio**, demonstrando boas práticas de **arquitetura REST**, **Spring Security + JWT**, **organização em camadas** e **documentação com Swagger**.
 
@@ -20,7 +20,7 @@
 
 ## 📌 Visão geral do projeto
 
-O **ConnectPro** é uma **API RESTful** desenvolvida em **Java com Spring Boot**, inspirada em plataformas profissionais como o LinkedIn.
+O **ConnectPro** é uma **API RESTful** desenvolvida em **Java com Spring Boot**.
 
 O sistema permite:
 - Criação de **perfis profissionais**
@@ -31,8 +31,6 @@ O sistema permite:
 O projeto segue boas práticas como **separação de camadas**, **DTOs**, **tratamento global de exceções** e **segurança robusta**.
 
 ---
-
-## 🚀 Funcionalidades
 
 ### 👤 Usuários & Perfis
 - Cadastro de usuário
@@ -172,6 +170,3 @@ Agradecimento especial a todas as pessoas incríveis que contribuíram para este
 ## 📄 Licença
 
 Este projeto é open-source e está disponível sob a Licença MIT. Sinta-se livre para usar, modificar e distribuir para projetos pessoais ou comerciais.
-
-
-
