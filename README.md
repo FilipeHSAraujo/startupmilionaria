@@ -164,12 +164,14 @@ Use o espaço de *issues* para relatar bugs, sugerir melhorias ou tirar dúvidas
 Agradecimento especial a todas as pessoas incríveis que contribuíram para este projeto 💙
 
 <a href="https://github.com/FilipeHSAraujo/ConnectPro/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=FilipeHSAraujo/ConnectPro" />
+  <img src="https://contrib.rocks/image?repo=FilipeHSAraujo/ConnectPro" />
 </a>
+
 
 
 ## 📄 Licença
 
 Este projeto é open-source e está disponível sob a Licença MIT. Sinta-se livre para usar, modificar e distribuir para projetos pessoais ou comerciais.
+
 
 
