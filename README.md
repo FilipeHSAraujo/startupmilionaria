@@ -84,7 +84,7 @@ The project follows a layered architecture:
 
 Join our GitHub community discussions to share ideas, ask questions, or suggest improvements. Let’s build something great together!
 
-[![Abrir Issues](https://img.shields.io/badge/Abrir%20Issues-blue?style=for-the-badge&logo=github)](https://github.com/FilipeHSAraujo/ConnectPro/issues)
+[![Open Issues](https://img.shields.io/badge/Abrir%20Issues-blue?style=for-the-badge&logo=github)](https://github.com/FilipeHSAraujo/ConnectPro/issues)
 
 Use the issues section to report bugs, suggest improvements, or ask questions about the project.
 
@@ -104,3 +104,4 @@ Special thanks to all the amazing people who have contributed to this project.
 
 This project is open source and available under the MIT License.
 Feel free to use, modify, and distribute it for personal or commercial projects.
+
