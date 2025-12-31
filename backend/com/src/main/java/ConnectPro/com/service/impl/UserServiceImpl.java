@@ -1,10 +1,12 @@
 package ConnectPro.com.service.impl;
 
 import ConnectPro.com.model.User;
+import ConnectPro.com.model.UserAction;
 import ConnectPro.com.model.UserType;
 import ConnectPro.com.repository.UserRepository;
 import ConnectPro.com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,10 +18,12 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -31,8 +35,9 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("Email already exists");
         }
         
-        // Internal handling of User Types if needed (e.g. setting default permissions)
-        // For now, we just proceed with saving
+        // Hash the password before saving
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        
         return userRepository.save(user);
     }
 
@@ -57,18 +62,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean canUserPerformAction(Long userId, String action) {
+    public boolean canUserPerformAction(Long userId, UserAction action) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Logic handling different user types internally
         switch (user.getUserType()) {
             case ADMIN:
-                return true; // Admin can do anything
+                return true;
             case CLIENT:
-                return "POST_JOB".equals(action) || "VIEW_PROFILE".equals(action);
+                return action == UserAction.POST_JOB || action == UserAction.VIEW_PROFILE;
             case FREELANCER:
-                return "APPLY_JOB".equals(action) || "VIEW_PROFILE".equals(action);
+                return action == UserAction.APPLY_JOB || action == UserAction.VIEW_PROFILE;
             default:
                 return false;
         }
