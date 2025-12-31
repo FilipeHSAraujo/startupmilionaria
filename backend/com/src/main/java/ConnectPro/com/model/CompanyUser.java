@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "company_user")
-public class CompanyUser {
+public class CompanyUser extends User {
 
     // Ein e como o cnpj
     @Column(nullable = false, unique = true, length = 9)
