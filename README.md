@@ -80,7 +80,7 @@ The project follows a layered architecture:
 - Maven
 - Git
 
-## 💬 Comunidade e Suporte
+## 💬 Community & Support
 
 Join our GitHub community discussions to share ideas, ask questions, or suggest improvements. Let’s build something great together!
 
@@ -104,4 +104,5 @@ Special thanks to all the amazing people who have contributed to this project.
 
 This project is open source and available under the MIT License.
 Feel free to use, modify, and distribute it for personal or commercial projects.
+
 
