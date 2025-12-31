@@ -2,62 +2,78 @@ package ConnectPro.com.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
-public class User {
+public abstract class User extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @jakarta.validation.constraints.Size(max = 50)
-    @Column(nullable = false, unique = true, length = 50)
-    private String username;
 
-    @jakarta.validation.constraints.Size(max = 100)
-    @jakarta.validation.constraints.Email
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(nullable = false, length = 50)
+    private String name;
+
+
+    @Column(nullable = false, length = 100)
     private String email;
+
 
     @Column(nullable = false, length = 255)
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "user_type", nullable = false)
-    private UserType userType;
 
-    public User() {
+    @Column(length = 120)
+    private String headline;
+
+
+    @Column(length = 500)
+    private String bio;
+
+
+    @Column(length = 80)
+    private String location;
+
+
+    @Column(name = "profile_picture", length = 255)
+    private String profilePicture;
+
+    // Um user pode ter varios Post
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Post> posts;
+
+    public String getProfilePicture() {
+        return profilePicture;
     }
 
-    public User(String username, String email, String password, UserType userType) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.userType = userType;
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
-    public Long getId() {
-        return id;
+    public String getLocation() {
+        return location;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getUsername() {
-        return username;
+    public String getBio() {
+        return bio;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
-    public String getEmail() {
-        return email;
+    public String getHeadline() {
+        return headline;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
 
     public String getPassword() {
@@ -68,11 +84,27 @@ public class User {
         this.password = password;
     }
 
-    public UserType getUserType() {
-        return userType;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserType(UserType userType) {
-        this.userType = userType;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
