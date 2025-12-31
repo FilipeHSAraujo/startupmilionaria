@@ -28,12 +28,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-            throw new RuntimeException("Username already exists");
-        }
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already exists");
-        }
+        userRepository.findByUsername(user.getUsername())
+                .ifPresent(u -> { throw new RuntimeException("Username already exists"); });
+        
+        userRepository.findByEmail(user.getEmail())
+                .ifPresent(u -> { throw new RuntimeException("Email already exists"); });
         
         // Hash the password before saving
         user.setPassword(passwordEncoder.encode(user.getPassword()));
