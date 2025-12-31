@@ -5,18 +5,6 @@ The goal is to build a **well-structured and maintainable backend application**,
 
 ---
 
-## 📑 Contents
-
-* [Project Overview](#project-overview)
-* [Technologies Used](#technologies-used)
-* [Project Structure](#project-structure)
-* [Features](#features)
-* [Main Endpoints](#main-endpoints)
-* [How to Run the Project](#how-to-run-the-project)
-* [Contributors](#contributors)
-
----
-
 ## 📌 Project Overview
 
 **ConnectPro** aims to serve as a foundation for a professional networking platform, allowing user management and future expansion into features such as connections, posts, and interactions.
@@ -84,7 +72,7 @@ The project follows a layered architecture:
 
 Join our GitHub community discussions to share ideas, ask questions, or suggest improvements. Let’s build something great together!
 
-[![Open Issues](https://img.shields.io/badge/Abrir%20Issues-blue?style=for-the-badge&logo=github)](https://github.com/FilipeHSAraujo/ConnectPro/issues)
+[![Open Issues](https://img.shields.io/badge/Open%20Issues-blue?style=for-the-badge&logo=github)](https://github.com/FilipeHSAraujo/ConnectPro/issues)
 
 Use the issues section to report bugs, suggest improvements, or ask questions about the project.
 
@@ -104,5 +92,6 @@ Special thanks to all the amazing people who have contributed to this project.
 
 This project is open source and available under the MIT License.
 Feel free to use, modify, and distribute it for personal or commercial projects.
+
 
 
