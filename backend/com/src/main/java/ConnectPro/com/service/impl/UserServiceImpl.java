@@ -2,14 +2,13 @@ package ConnectPro.com.service.impl;
 
 import ConnectPro.com.model.User;
 import ConnectPro.com.model.UserAction;
-import ConnectPro.com.model.UserType;
 import ConnectPro.com.repository.UserRepository;
 import ConnectPro.com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import ConnectPro.com.model.UserType;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(User user) {
-        userRepository.findByUsername(user.getUsername())
+        userRepository.findByUsername(user.getName())
                 .ifPresent(u -> { throw new RuntimeException("Username already exists"); });
         
         userRepository.findByEmail(user.getEmail())
@@ -62,8 +61,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean canUserPerformAction(Long userId, UserAction action) {
+        if (action == null) {
+            return false;
+        }
+
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (user.getUserType() == null) {
+            return false;
+        }
 
         switch (user.getUserType()) {
             case ADMIN:
@@ -76,4 +83,5 @@ public class UserServiceImpl implements UserService {
                 return false;
         }
     }
+
 }

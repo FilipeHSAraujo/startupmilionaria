@@ -8,6 +8,10 @@ import java.util.List;
 @Table(name = "users")
 public abstract class User extends BaseEntity{
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserType userType;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -106,5 +110,13 @@ public abstract class User extends BaseEntity{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public UserType getUserType(){
+        return this.userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 }
