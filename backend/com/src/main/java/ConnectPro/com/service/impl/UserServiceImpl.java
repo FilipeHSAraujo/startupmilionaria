@@ -5,12 +5,14 @@ import ConnectPro.com.model.UserAction;
 import ConnectPro.com.model.UserType;
 import ConnectPro.com.repository.UserRepository;
 import ConnectPro.com.service.UserService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -29,40 +31,32 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(User user) {
+        Objects.requireNonNull(user, "User cannot be null");
 
-        if (user == null) {
-            throw new RuntimeException("User cannot be null");
-        }
-
-        if (user.getUsername() == null || user.getUsername().isBlank()) {
-            throw new RuntimeException("Username is required");
-        }
-
-        if (user.getEmail() == null || user.getEmail().isBlank()) {
-            throw new RuntimeException("Email is required");
-        }
-
-        if (user.getPassword() == null || user.getPassword().isBlank()) {
-            throw new RuntimeException("Password is required");
-        }
-
-        if (user.getUserType() == null) {
-            throw new RuntimeException("User type is required");
-        }
+        requireNonBlank(user.getUsername(), "Username is required");
+        requireNonBlank(user.getEmail(),    "Email is required");
+        requireNonBlank(user.getPassword(), "Password is required");
+        Objects.requireNonNull(user.getUserType(), "User type is required");
 
         userRepository.findByUsername(user.getUsername())
                 .ifPresent(u -> {
-                    throw new RuntimeException("Username already exists");
+                    throw new IllegalArgumentException("Username already exists");
                 });
+
 
         userRepository.findByEmail(user.getEmail())
                 .ifPresent(u -> {
-                    throw new RuntimeException("Email already exists");
-                });
+                    throw new IllegalArgumentException("Email already exists");});
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         return userRepository.save(user);
+    }
+
+    private static void requireNonBlank(String value, String message) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(message);
+        }
     }
 
     @Override
@@ -93,34 +87,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean canUserPerformAction(Long userId, UserAction action) {
-
         if (action == null) {
             return false;
         }
 
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
 
         UserType userType = user.getUserType();
-
         if (userType == null) {
             return false;
         }
 
-        switch (userType) {
-            case ADMIN:
-                return true;
-
-            case CLIENT:
-                return action == UserAction.POST_JOB
-                        || action == UserAction.VIEW_PROFILE;
-
-            case FREELANCER:
-                return action == UserAction.APPLY_JOB
-                        || action == UserAction.VIEW_PROFILE;
-
-            default:
-                return false;
-        }
+        return switch (userType) {
+            case ADMIN      -> true;
+            case CLIENT     -> action == UserAction.POST_JOB || action == UserAction.VIEW_PROFILE;
+            case FREELANCER -> action == UserAction.APPLY_JOB || action == UserAction.VIEW_PROFILE;
+            default         -> false;
+        };
     }
 }
